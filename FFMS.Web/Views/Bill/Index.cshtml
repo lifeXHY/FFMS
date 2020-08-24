@@ -1,0 +1,43 @@
+﻿@model FFMS.Application.Bill.Dto.SearchAccountBillDto
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>账簿管理</title>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row ">
+            <div class="test-table-reload-btn" style="margin-bottom: 10px;">
+                <button type="button" class="layui-btn layui-btn-normal" name="btnCreate">
+                    <i class="fa fa-suitcase"></i>
+                    &nbsp;&nbsp;新增
+                </button>
+            </div>
+
+            <div class="test-table-reload-btn" style="margin-bottom: 10px;">
+                搜索日期范围：
+                <div class="layui-inline">
+                    @Html.TextBoxFor(m => m.BegDate, new { @class = "layui-input", autocomplete = "off" })
+                </div>
+                至
+                <div class="layui-inline">
+                    @Html.TextBoxFor(m => m.EndDate, new { @class = "layui-input", autocomplete = "off" })
+                </div>
+                <button class="layui-btn" data-type="reload" id="btnSearch">搜索</button>
+            </div>
+        </div>
+        <div class="layui-row ">
+            <table id="tb_Items" class="layui-table" lay-filter="lay_tb_Items"></table>
+        </div>
+    </div>
+    <script type="text/html" id="table-OperationTemplate">
+        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="bondTemplateEdit">编辑</a>
+        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="bondTemplateDlete">删除</a>
+    </script>
+    @section scripts{
+        <script src="~/view-resources/Views/Bills/Index.js" asp-append-version="true"></script>
+    }
+</body>
+</html>

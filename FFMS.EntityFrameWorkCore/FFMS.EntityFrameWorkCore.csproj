@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DesignTimeDbContextFactory.cs" />
+    <Compile Remove="Migrations\20200808130439_add_user.cs" />
+    <Compile Remove="Migrations\20200808130439_add_user.Designer.cs" />
+    <Compile Remove="Migrations\20200808130549_add_user.cs" />
+    <Compile Remove="Migrations\20200808130549_add_user.Designer.cs" />
+    <Compile Remove="Migrations\20200808130801_add_user.cs" />
+    <Compile Remove="Migrations\20200808130801_add_user.Designer.cs" />
+    <Compile Remove="Migrations\20200808131457_CreateTbale2.cs" />
+    <Compile Remove="Migrations\20200808131457_CreateTbale2.Designer.cs" />
+    <Compile Remove="Migrations\20200808132328_CreateTbale2.cs" />
+    <Compile Remove="Migrations\20200808132328_CreateTbale2.Designer.cs" />
+    <Compile Remove="Migrations\20200810053546_update_table.cs" />
+    <Compile Remove="Migrations\20200810053546_update_table.Designer.cs" />
+    <Compile Remove="Migrations\20200816114645_add_AccountBill.cs" />
+    <Compile Remove="Migrations\20200816114645_add_AccountBill.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Wei.Repository" Version="1.0.6" />
+  </ItemGroup>
+
+</Project>

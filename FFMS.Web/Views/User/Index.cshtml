@@ -1,0 +1,34 @@
+﻿<html>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row ">
+            <div class="layui-col-md12">
+                <button type="button" class="layui-btn layui-btn-normal" name="btnCreate">
+                    <i class="fa fa-suitcase"></i>
+                    &nbsp;&nbsp;新增
+                </button>
+            </div>
+        </div>
+        <div class="layui-row ">
+            <table id="tb_User" class="layui-table" lay-filter="lay_tb_User"></table>
+        </div>
+    </div>
+    
+    @section scripts{
+        <script src="~/view-resources/Views/User/Index.js" asp-append-version="true"></script>
+    }
+    <script type="text/html" id="switchSexTpl">
+        <input type="checkbox" disabled="disabled" name="sex" value="{{d.sex}}" lay-skin="switch" lay-text="男|女" {{ d.sex == 1 ? 'checked' : '' }}>
+
+    </script>
+    <script type="text/html" id="switchIsActiveTpl">
+        <input type="checkbox" disabled="disabled" name="isActive" value="{{d.isActive}}" lay-skin="switch" lay-text="是|否" {{ d.isActive == 1 ? 'checked' : '' }}>
+    </script>
+
+    <script type="text/html" id="table-OperationTemplate">
+        {{#  if(d.ifAdmin == 0){ }}
+        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="bondTemplateEdit">编辑</a>
+        {{#  } }}
+    </script>
+</body>
+</html>

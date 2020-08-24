@@ -1,0 +1,61 @@
+﻿@model FFMS.Application.Bill.Dto.UpdateAccountBillDto
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="layui-fluid">
+
+        <form name="UserCreateForm" class="layui-form layui-form-pane">
+            <div class="layui-form-item">
+                <div class="layui-block">
+                    <label class="layui-form-label layui-required">收入/支出</label>
+                    <div class="layui-input-inline">
+                        @Html.DropDownListFor(m => m.BillType, ViewBag.BillTypelst as List<SelectListItem>, new { @class = "layui-input" })
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-block">
+                    <label class="layui-form-label layui-required">收支日期</label>
+                    <div class="layui-input-block">
+                        @Html.TextBoxFor(m => m.AccountDate, new { @class = "layui-input", @lay_verify = "date", placeholder = "yyyy-MM-dd", autocomplete = "off" })
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-block">
+                    <label class="layui-form-label layui-required">收支项目</label>
+                    <div class="layui-input-block">
+                        @Html.DropDownListFor(m => m.ItemType, ViewBag.ItmsTypelst as List<SelectListItem>, new { @class = "layui-input",lay_filter = "ItemType", lay_verify = "required", autocomplete = "off" })
+                        @Html.HiddenFor(m => m.ItemsId)
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-block">
+                    <label class="layui-form-label layui-required">收支金额</label>
+                    <div class="layui-input-block">
+                        @Html.TextBoxFor(m => m.AccountMoney, new { @class = "layui-input", @lay_verify = "required|number", placeholder = "￥", autocomplete = "off" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item layui-layout-admin">
+                <div class="layui-input-block">
+                    <div class="layui-footer" style="left: 0;">
+                        <button class="layui-btn" lay-submit lay-filter="component-form-commit">立即提交</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <input type="hidden" value="@ViewBag.Id" id="Hidden_Id" />
+    </div>
+    @section scripts{
+
+        <script src="~/view-resources/Views/Bills/Create.js" asp-append-version="true"></script>
+    }
+</body>
+</html>

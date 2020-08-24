@@ -1,0 +1,47 @@
+﻿@model FFMS.Application.Items.Dto.UpdateItemsDto
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+    <div class="layui-fluid">
+
+        <form name="UserCreateForm" class="layui-form layui-form-pane">
+            <div class="layui-form-item" pane>
+                <div class="layui-inline">
+                    <label class="layui-form-label layui-required">收支项目</label>
+                    <div class="layui-input-inline">
+                        @Html.TextBoxFor(m => m.ItemType, new { @class = "layui-input", @placeholder = "请输入收支项目", @lay_verify = "ItemType|required", @autocomplete = "off", @maxlength = "100" })
+
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-block">
+                        @Html.TextBoxFor(m => m.Memo, new { @class = "layui-input", lay_verify = "ItemType", @autocomplete = "off", @maxlength = "500" })
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="layui-form-item layui-layout-admin">
+                <div class="layui-input-block">
+                    <div class="layui-footer" style="left: 0;">
+                        <button class="layui-btn" lay-submit lay-filter="component-form-commit">立即提交</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <input type="hidden" value="@ViewBag.Id" id="Hidden_Id" />
+        <input type="hidden" value="@ViewBag.ItemType" id="Hidden_ItemType" />
+    </div>
+    @section scripts{
+
+        <script src="~/view-resources/Views/Items/Create.js" asp-append-version="true"></script>
+    }
+</body>
+</html>

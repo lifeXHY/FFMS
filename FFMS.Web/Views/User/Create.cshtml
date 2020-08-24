@@ -1,0 +1,86 @@
+﻿@model FFMS.Application.User.Dto.BasUserDto;
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新增用户</title>
+</head>
+<body>
+    <div class="layui-fluid">
+
+        <form name="UserCreateForm" class="layui-form layui-form-pane">
+            <div class="layui-form-item" pane>
+                <div class="layui-inline">
+                    <label class="layui-form-label layui-required">用户名</label>
+                    <div class="layui-input-inline">
+                        @*<input type="text" name="UserName" lay-verify="UserName|required" placeholder="请输入用户名" autocomplete="off" class="layui-input">*@
+                        @if (ViewBag.Id == 0)
+                        {
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "layui-input", @placeholder = "请输入用户名", @lay_verify = "UserName|required", @autocomplete = "off" })
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "layui-input", @placeholder = "请输入用户名", @disabled = "disabled", @lay_verify = "UserName|required", @autocomplete = "off" })
+                        }
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label layui-required">性别</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="1" title="男" checked>
+                        <input type="radio" name="sex" value="0" title="女">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label layui-required">是否启用</label>
+                    <div class="layui-input-block">
+                        @*<input type="checkbox" checked="checked" name="IsActive" lay-skin="switch" lay-filter="component-form-switchTest" lay-text="启用|停用">*@
+                        @Html.CheckBoxFor(a => a.IsActive, new { @class = "checkBox", @lay_skin = "switch", @lay_filter = "component-form-switchTest", @lay_text = "启用|停用" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                @if (ViewBag.Id == 0)
+                {
+                    <div class="layui-inline">
+                        <label class="layui-form-label layui-required">密码</label>
+                        <div class="layui-input-inline">
+                            @*<input type="password" name="PassWord" lay-verify="PassWord|required" placeholder="c" maxlength="128" autocomplete="off" class="layui-input">*@
+                            @Html.TextBoxFor(m => m.PassWord, new { @class = "layui-input", @type = "password",@placeholder = "请输入密码", @maxlength = "128", @lay_verify = "PassWord|required", @autocomplete = "off" })
+                        </div>
+                    </div>
+                }
+                @*else
+                {
+                    @Html.HiddenFor(m => m.PassWord)
+                }*@
+
+
+                <div class="layui-inline">
+                    <label class="layui-form-label layui-required">姓名</label>
+                    <div class="layui-input-inline">
+                        @*<input type="text" name="DisPlayName" lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">*@
+                        @Html.TextBoxFor(m => m.DisPlayName, new { @class = "layui-input", @placeholder = "请输入姓名", @maxlength = "50", @autocomplete = "off" })
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item layui-layout-admin">
+                <div class="layui-input-block">
+                    <div class="layui-footer" style="left: 0;">
+                        <button class="layui-btn" lay-submit lay-filter="component-form-commit">立即提交</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    <input type="hidden" value="@ViewBag.Id" id="Hidden_Id" />
+    @section scripts{
+        
+        <script src="~/view-resources/Views/User/Create.js" asp-append-version="true"></script>
+    }
+</body>
+
+</html>

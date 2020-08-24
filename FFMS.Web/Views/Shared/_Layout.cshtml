@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/assets/layuiAdmin.std/src/layuiadmin/layui/css/layui.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/assets/layuiAdmin.std/src/layuiadmin/style/admin.css" rel="stylesheet" media="all" asp-append-version="true" />
+    <link href="~/lib/images/logo.svg" rel="icon" type="image/svg" />
+    <style type="text/css">
+        .layui-form-label.layui-required:after {
+            content: "*";
+            color: red;
+            position: absolute;
+            top: 5px;
+            left: 15px;
+        }
+
+        ul {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-4">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/assets/layuiAdmin.std/src/layuiadmin/layui/layui.js" asp-append-version="true"></script>
+    <script>
+        layui.config({
+            base: '../../assets/layuiAdmin.std/dist/layuiadmin/' //静态资源所在路径//'im',
+        }).extend({
+            index: 'lib/index' //主入口模块
+        }).use(['layer', 'index', 'common', 'console', 'contlist', 'forum', 'message', 'sample', 'senior', 'set', 'user', 'useradmin', 'workorder'], function () {
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
