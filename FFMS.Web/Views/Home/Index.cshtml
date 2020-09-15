@@ -7,11 +7,11 @@
         <div class="layui-header">
             <!-- 头部区域 -->
             <ul class="layui-nav layui-layout-left">
-                <li class="layui-nav-item layadmin-flexible" lay-unselect>
-                    <a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
-                        <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
-                    </a>
-                </li>
+                @*<li class="layui-nav-item layadmin-flexible" lay-unselect>
+                        <a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
+                            <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+                        </a>
+                    </li>*@
                 <li class="layui-nav-item" lay-unselect>
                     <a href="javascript:;" layadmin-event="refresh" title="刷新">
                         <i class="layui-icon layui-icon-refresh-3"></i>
@@ -71,15 +71,7 @@
                 {
                     <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
 
-                        @if (User.Identity.Name.Contains("管理"))
-                        {
-                            <li data-name="get" class="layui-nav-item" style="line-height:5">
-                                <a href="javascript:;" lay-href="/User/" lay-tips="授权" lay-direction="2">
-                                    <i class=" layui-icon layui-icon-username"></i>
-                                    <cite>家庭成员管理</cite>
-                                </a>
-                            </li>
-                        }
+
 
                         <li data-name="get" class="layui-nav-item" style="line-height:5">
                             <a href="javascript:;" lay-href="/Items/" lay-tips="收支项目" lay-direction="2">
@@ -95,18 +87,30 @@
                             </a>
                         </li>
 
-                        <li data-name="get" class="layui-nav-item" style="line-height:5">
-                            <a href="javascript:;"  lay-tips="收支报表" lay-direction="2">
-                                <i class="layui-icon layui-icon-file-b"></i>
-                                <cite>收支报表</cite>
-                            </a>
-                            <dl class="layui-nav-child">
-                                <dd data-name="console">
-                                    <a lay-href="/Report/Details">收支明细</a>
-                                </dd>
-                                
-                            </dl>
-                        </li>
+                        @if (User.Identity.Name.Contains("管理"))
+                        {
+                            <li data-name="get" class="layui-nav-item" style="line-height:5">
+                                <a href="javascript:;" lay-href="/User/" lay-tips="授权" lay-direction="2">
+                                    <i class=" layui-icon layui-icon-username"></i>
+                                    <cite>家庭成员管理</cite>
+                                </a>
+                            </li>
+
+                            <li data-name="get" class="layui-nav-item" style="line-height:5">
+                                <a href="javascript:;" lay-tips="收支报表" lay-direction="2">
+                                    <i class="layui-icon layui-icon-file-b"></i>
+                                    <cite>收支报表</cite>
+                                </a>
+                                <dl class="layui-nav-child">
+                                    <dd data-name="console">
+                                        <a lay-href="/Report/Details">收支明细</a>
+                                    </dd>
+
+                                </dl>
+                            </li>
+                        }
+
+
                     </ul>
                 }
 

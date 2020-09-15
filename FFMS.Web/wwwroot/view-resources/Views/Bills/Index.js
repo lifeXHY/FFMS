@@ -10,9 +10,8 @@
             var searchEntity = {};
             searchEntity.BegDate = $("#BegDate").val();
             searchEntity.EndDate = $("#EndDate").val();
-            console.log(JSON.stringify(searchEntity))
             table.render({
-                elem: '#tb_Items'
+                elem: '#tb_Bills'
                 , height: 'full-200'
                 , cellMinWidth: 80
                 , url: '/Bill/GetBillsList' //数据接口

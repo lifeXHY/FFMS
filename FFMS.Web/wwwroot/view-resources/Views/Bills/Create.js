@@ -3,7 +3,7 @@
         var form = layui.form
             , layer = layui.layer
             , laydate = layui.laydate
-
+            
         form.render();
 
         laydate.render({
@@ -13,13 +13,14 @@
         });
 
         form.on('select(ItemType)', function (data) {
-            $("#ItemsId").val(data.value);
+            $("#Hidden_ItemType").val(data.elem[data.elem.selectedIndex].text);
+            //$("#ItemsId").val(data.value);
         });    
 
         /* 监听提交 */
         form.on('submit(component-form-commit)', function (data) {
             var entity = data.field
-
+            entity.ItemType = $("#Hidden_ItemType").val();
             var Url = null;
             if ($('#Hidden_Id').val() == "0") {
                 Url = '/Bill/CreateNewBill';
@@ -59,8 +60,3 @@
         });
     });
 })(jQuery)
-
-function ItemTypeChange() {
-    alert(1);
-   
-}

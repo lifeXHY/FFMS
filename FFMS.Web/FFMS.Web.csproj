@@ -29,8 +29,4 @@
     <ProjectReference Include="..\FFMS.EntityFrameWorkCore\FFMS.EntityFrameWorkCore.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\lib\images\" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,4 @@
-﻿@model FFMS.Application.Bill.Dto.SearchAccountBillDto
+﻿@model FFMS.Application.Report.Dto.SearchReport_DetailsDto
 <!DOCTYPE html>
 
 <html>
@@ -7,7 +7,7 @@
     <title>收支报表明细</title>
 </head>
 <body>
-    <div class="layui-fluid">
+    <div class="layui-fluid layui-form">
         <div class="layui-row ">
             <div class="test-table-reload-btn" style="margin-bottom: 10px;">
                 搜索日期范围：
@@ -18,9 +18,24 @@
                 <div class="layui-inline">
                     @Html.TextBoxFor(m => m.EndDate, new { @class = "layui-input", autocomplete = "off" })
                 </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户</label>
+                    <div class="layui-input-block">
+                        @Html.DropDownListFor(m => m.UserID, ViewBag.UserList as List<SelectListItem>, new { @class = "layui-input", lay_filter = "UserID", autocomplete = "off" })
+                    </div>
+                </div>
                 <button class="layui-btn" data-type="reload" id="btnSearch">查询</button>
             </div>
         </div>
+        
+
+        <div class="layui-row ">
+            <table id="tb_Details" class="layui-table" lay-filter="lay_tb_Items"></table>
+        </div>
     </div>
+    <input type="hidden" id="UserIDSel" />
+    @section scripts{
+        <script src="~/view-resources/Views/Report/Details.js" asp-append-version="true"></script>
+    }
 </body>
 </html>

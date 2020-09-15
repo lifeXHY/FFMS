@@ -29,8 +29,8 @@
                 <div class="layui-block">
                     <label class="layui-form-label layui-required">收支项目</label>
                     <div class="layui-input-block">
-                        @Html.DropDownListFor(m => m.ItemType, ViewBag.ItmsTypelst as List<SelectListItem>, new { @class = "layui-input",lay_filter = "ItemType", lay_verify = "required", autocomplete = "off" })
-                        @Html.HiddenFor(m => m.ItemsId)
+                        @Html.DropDownListFor(m => m.ItemsId, ViewBag.ItmsTypelst as List<SelectListItem>, new { @class = "layui-input", lay_filter = "ItemType", lay_verify = "required", autocomplete = "off" })
+                        @*@Html.HiddenFor(m => m.ItemsId)*@
                     </div>
                 </div>
             </div>
@@ -52,6 +52,7 @@
             </div>
         </form>
         <input type="hidden" value="@ViewBag.Id" id="Hidden_Id" />
+        <input type="hidden" value="@ViewBag.Hidden_ItemType" id="Hidden_ItemType" />
     </div>
     @section scripts{
 

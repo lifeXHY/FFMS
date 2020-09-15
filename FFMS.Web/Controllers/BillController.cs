@@ -73,7 +73,7 @@ namespace FFMS.Web.Controllers
                 var item = await _accountBillService.GetBillEntity(Convert.ToInt32(Id));
                 model = _mapper.Map(item, model);
                 ViewBag.Id = item.Id;
-
+                ViewBag.Hidden_ItemType = item.ItemType;
             }
             else
             {
@@ -81,6 +81,7 @@ namespace FFMS.Web.Controllers
             }
             ViewBag.BillTypelst = BillTypelst;
             ViewBag.ItmsTypelst = ItmsTypelst;
+            
             return View(model);
         }
 

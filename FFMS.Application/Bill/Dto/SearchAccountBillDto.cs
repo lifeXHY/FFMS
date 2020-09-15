@@ -6,7 +6,6 @@ namespace FFMS.Application.Bill.Dto
 {
     public class SearchAccountBillDto
     {
-        //只能查询自身的数据
         public int UserID { get; set; }
 
         /// <summary>
